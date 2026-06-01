@@ -14,8 +14,8 @@ import sys
 from pathlib import Path
 
 REPORT_DIR = Path(__file__).parent
-MD_FILE    = REPORT_DIR / "Z23971583_Project_Report.md"
-PDF_OUT    = REPORT_DIR / "Z23971583_Project_Report.pdf"
+MD_FILE    = REPORT_DIR / "neuro_symbolic_link_prediction.md"
+PDF_OUT    = REPORT_DIR / "neuro_symbolic_link_prediction.pdf"
 LUA_FILTER = REPORT_DIR / "table_vlines.lua"
 
 # ── 1. Generate PDF via pandoc (Lua filter handles tables) ────────────────────

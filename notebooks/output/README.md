@@ -1,7 +1,7 @@
-# LR Baseline — twitch_full (9 features)
+# LR Baseline — twitch (9 features)
 **Date:** 2026-05-24 20:44  
-**Notebook:** notebooks/baseline/twitch_full/lr/lr_full.ipynb  
-**Output:** notebooks/baseline/twitch_full/lr/output/20260524_2044/
+**Notebook:** notebooks/baseline/lr/link_prediction_baseline.ipynb  
+**Output:** notebooks/output/20260524_2044_lr/
 
 ## Test Set Metrics
 | Metric | Value |
@@ -48,10 +48,10 @@
 
 ---
 
-# MLP BCE Baseline — twitch_full (9 features)
+# MLP BCE Baseline — twitch (9 features)
 **Date:** 2026-05-24 20:44  
-**Notebook:** notebooks/mlp_full_nesy.ipynb (USE_SYMBOLIC_LOSS=False)  
-**Output:** notebooks/baseline/twitch_full/mlp/output/20260524_2044_bce/
+**Notebook:** notebooks/link_prediction_nesy.ipynb (USE_SYMBOLIC_LOSS=False)  
+**Output:** notebooks/output/20260524_2044_mlp_bce/
 
 ## Test Set Metrics
 | Metric | Value |
@@ -94,10 +94,10 @@
 
 ---
 
-# MLP + Symbolic Loss λ=0.5 — twitch_full (9 features)
+# MLP + Symbolic Loss λ=0.5 — twitch (9 features)
 **Date:** 2026-05-24 20:49  
-**Notebook:** notebooks/mlp_full_nesy.ipynb (USE_SYMBOLIC_LOSS=True, LAMBDA=0.5)  
-**Output:** notebooks/nesy/output/20260524_2049_lambda0.5/
+**Notebook:** notebooks/link_prediction_nesy.ipynb (USE_SYMBOLIC_LOSS=True, LAMBDA=0.5)  
+**Output:** notebooks/output/20260524_2049_mlp_lambda0.5/
 
 ## Test Set Metrics
 | Metric | Value |
@@ -140,10 +140,10 @@
 
 ---
 
-# MLP + Symbolic Loss λ=1.0 — twitch_full (9 features)
+# MLP + Symbolic Loss λ=1.0 — twitch (9 features)
 **Date:** 2026-05-24 20:52  
-**Notebook:** notebooks/mlp_full_nesy.ipynb (USE_SYMBOLIC_LOSS=True, LAMBDA=1.0)  
-**Output:** notebooks/nesy/output/20260524_2052_lambda1.0/
+**Notebook:** notebooks/link_prediction_nesy.ipynb (USE_SYMBOLIC_LOSS=True, LAMBDA=1.0)  
+**Output:** notebooks/output/20260524_2052_mlp_lambda1.0/
 
 ## Test Set Metrics
 | Metric | Value |
@@ -185,10 +185,10 @@
 
 ---
 
-# MLP + Symbolic Loss λ=2.0 — twitch_full (9 features)
+# MLP + Symbolic Loss λ=2.0 — twitch (9 features)
 **Date:** 2026-05-24 20:55  
-**Notebook:** notebooks/mlp_full_nesy.ipynb (USE_SYMBOLIC_LOSS=True, LAMBDA=2.0)  
-**Output:** notebooks/nesy/output/20260524_2055_lambda2.0/
+**Notebook:** notebooks/link_prediction_nesy.ipynb (USE_SYMBOLIC_LOSS=True, LAMBDA=2.0)  
+**Output:** notebooks/output/20260524_2055_mlp_lambda2.0/
 
 ## Test Set Metrics
 | Metric | Value |
@@ -214,7 +214,7 @@
 | Weighted Recall | 0.853 | ±0.006 |
 | Weighted F1 | 0.853 | ±0.006 |
 
-## Full λ Sweep Summary — twitch_full
+## Full λ Sweep Summary — twitch
 | System | Link P | Link R | Link F1 | P-R Gap | FN | FP |
 |---|---|---|---|---|---|---|
 | LR (BCE) | 0.92 | 0.75 | 0.83 | 0.17 | 1,747 | 471 |

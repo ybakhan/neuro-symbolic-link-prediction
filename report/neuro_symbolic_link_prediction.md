@@ -1,8 +1,7 @@
-**Name:** Yasser Khan  
-**Z-Number:** Z23971583  
-**Course:** COT 6930 Project Report
-
-# Neuro-Symbolic Link Prediction on the Twitch Social Network
+---
+title: "Neuro-Symbolic Link Prediction on the Twitch Social Network"
+author: "Yasser Khan"
+---
 
 ### 1. Introduction
 
@@ -14,17 +13,17 @@ A logistic regression (LR) baseline achieved 84% accuracy but missed 25% of actu
 
 The dataset consists of 70,648 pairs of Twitch users derived from the MuSAE Twitch English network [3]. Each pair is labeled 1 if the two users are mutually connected and 0 if they are not. The dataset is balanced, with 35,324 samples of each class. The non-link pairs were randomly sampled from all non-connected node pairs in the network. Each pair is described by 9 features listed in Table 1. An 80/20 train/test split was used with 10-fold cross-validation on the training set.
 
-| Feature | Description |
-|---|---|
-| common_neighbors | Count of mutual connections |
-| jaccard_coefficient | Neighbor overlap relative to neighbor union |
-| adamic_adar (AA) | Common neighbors weighted by their degree |
-| preferential_attachment (PA) | Product of the two nodes' degrees |
-| views_diff | Absolute difference in total view counts |
-| views_ratio | min(views) / max(views) relative popularity |
-| age_diff | Absolute difference in account age (days) |
-| same_partner | 1 if both or neither users are Twitch partners |
-| same_mature | 1 if both or neither users have their channel flagged as mature content |
+| Feature                      | Description                                                             |
+| ---------------------------- | ----------------------------------------------------------------------- |
+| common_neighbors             | Count of mutual connections                                             |
+| jaccard_coefficient          | Neighbor overlap relative to neighbor union                             |
+| adamic_adar (AA)             | Common neighbors weighted by their degree                               |
+| preferential_attachment (PA) | Product of the two nodes' degrees                                       |
+| views_diff                   | Absolute difference in total view counts                                |
+| views_ratio                  | min(views) / max(views) relative popularity                             |
+| age_diff                     | Absolute difference in account age (days)                               |
+| same_partner                 | 1 if both or neither users are Twitch partners                          |
+| same_mature                  | 1 if both or neither users have their channel flagged as mature content |
 
 Table 1. Features computed for each pair of Twitch users.
 
@@ -48,13 +47,13 @@ Equation 2. BCE loss augmented with a symbolic penalty term.
 
 Three values of $\lambda$ were evaluated on the test set: 0.5, 1.0, and 2.0. Table 2 shows the evaluation metrics across all systems.
 
-| System | Accuracy | AUC | Precision | Recall | F1 | FN | FP |
-|---|---|---|---|---|---|---|---|
-| Logistic Regression | 0.84 | 0.91 | 0.92 | 0.75 | 0.83 | 1,747 | 471 |
-| MLP (BCE only) | 0.85 | 0.92 | 0.90 | 0.80 | 0.84 | 1,439 | 649 |
-| MLP + Rule (λ=0.5) | 0.85 | 0.92 | 0.89 | 0.81 | 0.85 | 1,343 | 721 |
-| MLP + Rule (λ=1.0) | 0.85 | 0.92 | 0.88 | **0.82** | **0.85** | **1,284** | 777 |
-| MLP + Rule (λ=2.0) | 0.85 | 0.92 | 0.88 | **0.82** | **0.85** | **1,263** | 806 |
+| System              | Accuracy | AUC  | Precision | Recall   | F1       | FN        | FP  |
+| ------------------- | -------- | ---- | --------- | -------- | -------- | --------- | --- |
+| Logistic Regression | 0.84     | 0.91 | 0.92      | 0.75     | 0.83     | 1,747     | 471 |
+| MLP (BCE only)      | 0.85     | 0.92 | 0.90      | 0.80     | 0.84     | 1,439     | 649 |
+| MLP + Rule (λ=0.5)  | 0.85     | 0.92 | 0.89      | 0.81     | 0.85     | 1,343     | 721 |
+| MLP + Rule (λ=1.0)  | 0.85     | 0.92 | 0.88      | **0.82** | **0.85** | **1,284** | 777 |
+| MLP + Rule (λ=2.0)  | 0.85     | 0.92 | 0.88      | **0.82** | **0.85** | **1,263** | 806 |
 
 Table 2. Evaluation metrics across all systems. FN = false negatives, FP = false positives.
 

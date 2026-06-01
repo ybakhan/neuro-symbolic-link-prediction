@@ -36,22 +36,25 @@ This is related to [Semantic Loss](https://proceedings.mlr.press/v80/xu18h.html)
 
 ```
 ├── data/
-│   ├── musae_ENGB_edges.csv          # Raw graph edges
-│   ├── musae_ENGB_target.csv         # Node attributes (views, age, partner, mature)
-│   ├── twitch_structural.csv         # Structural graph features per node pair
-│   └── twitch_full.csv               # Final dataset (structural + node attribute features)
+│   ├── musae_ENGB_edges.csv              # Raw graph edges
+│   ├── musae_ENGB_target.csv             # Node attributes (views, age, partner, mature)
+│   └── twitch.csv                        # Final dataset (9 features per node pair)
 ├── notebooks/
-│   ├── mlp_full_nesy.ipynb           # Main: MLP baseline + neuro-symbolic MLP
-│   └── baseline/
-│       ├── twitch_full/lr/           # LR baseline on full 9-feature dataset
-│       └── twitch_structural/lr/     # LR baseline on structural features only
-├── scripts/
-│   ├── build_dataset.py              # Builds twitch_full.csv from raw inputs
-│   └── verify_dataset.py             # Sanity checks on twitch_full.csv
-├── results/
-│   └── results_2026-05-24_2044.md    # Full experiment results
-└── report/
-    └── Z23971583_Project_Report.pdf  # Full written report
+│   ├── link_prediction_build_dataset.ipynb  # Build dataset from raw inputs (PySpark)
+│   ├── link_prediction_baseline.ipynb       # Logistic regression baseline
+│   ├── link_prediction_nesy.ipynb           # MLP baseline + neuro-symbolic MLP
+│   └── output/
+│       ├── README.md                        # Full experiment results
+│       ├── 20260524_2044_lr/
+│       ├── 20260524_2044_mlp_bce/
+│       ├── 20260524_2049_mlp_lambda0.5/
+│       ├── 20260524_2052_mlp_lambda1.0/
+│       └── 20260524_2055_mlp_lambda2.0/
+├── report/
+│   ├── neuro_symbolic_link_prediction.md   # Written report (source)
+│   ├── neuro_symbolic_link_prediction.pdf  # Written report (PDF)
+│   └── build_pdf.py                        # Regenerate PDF from markdown
+└── pyproject.toml
 ```
 
 ## Setup
@@ -59,7 +62,6 @@ This is related to [Semantic Loss](https://proceedings.mlr.press/v80/xu18h.html)
 This project uses [uv](https://docs.astral.sh/uv/) for dependency management.
 
 ```bash
-# Install dependencies
 uv sync
 ```
 
@@ -73,19 +75,17 @@ Python 3.13+ required.
 
 ## Reproducing Results
 
+`data/twitch.csv` is included in the repository — no rebuild needed to run the notebooks.
+
 ```bash
-# 1. Build the full dataset (run from the data/ directory)
-cd data
-python ../scripts/build_dataset.py
+# LR baseline
+jupyter notebook notebooks/link_prediction_baseline.ipynb
 
-# 2. Verify dataset integrity
-python ../scripts/verify_dataset.py
-
-# 3. Open the main notebook
-jupyter notebook notebooks/mlp_full_nesy.ipynb
+# MLP baseline and neuro-symbolic MLP
+jupyter notebook notebooks/link_prediction_nesy.ipynb
 ```
 
-In `mlp_full_nesy.ipynb`, the key flags at the top of the training cell are:
+In `link_prediction_nesy.ipynb`, toggle the flags at the top of the training cell:
 
 ```python
 USE_SYMBOLIC_LOSS = True   # False for plain MLP baseline
