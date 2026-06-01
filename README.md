@@ -1,5 +1,9 @@
 # Neuro-Symbolic Link Prediction on the Twitch Social Network
 
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.12-EE4C2C?logo=pytorch&logoColor=white)
+![PySpark](https://img.shields.io/badge/PySpark-3.x-E25A1C?logo=apachespark&logoColor=white)
+
 Link prediction determines whether a connection is likely to exist between two nodes in a network. This project applies a neuro-symbolic framework to predict friendship links in the Twitch English social network — a graph of 7,126 users and 35,324 mutual connections.
 
 A logistic regression baseline achieved strong overall accuracy (84%) but missed 25% of actual links (recall = 0.75). Error analysis revealed the model consistently failed on connected users who share no mutual friends. A symbolic rule derived from **preferential attachment theory** was encoded as a training loss penalty to directly target this failure, reducing missed connections by 26%.
