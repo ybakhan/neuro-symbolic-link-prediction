@@ -3,6 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.12-EE4C2C?logo=pytorch&logoColor=white)
 ![PySpark](https://img.shields.io/badge/PySpark-3.x-E25A1C?logo=apachespark&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 Link prediction determines whether a connection is likely to exist between two nodes in a network. This project applies a neuro-symbolic framework to predict friendship links in the Twitch English social network — a graph of 7,126 users and 35,324 mutual connections.
 
@@ -101,6 +102,10 @@ Set these to reproduce each row in the results table.
 ## Dataset
 
 The [Twitch English social network](https://snap.stanford.edu/data/twitch-social-networks.html) from the MuSAE dataset: 7,126 nodes (streamers) and 35,324 edges (mutual follows). The classification dataset contains 70,648 node pairs — balanced between true links and randomly sampled non-links. Each pair is described by 9 features: 4 structural graph features (common neighbors, Jaccard coefficient, Adamic-Adar, preferential attachment) and 5 pairwise node attribute features (view count difference/ratio, account age difference, same partner status, same mature-content flag).
+
+## License
+
+MIT License. Copyright (c) 2026.
 
 ## References
 
